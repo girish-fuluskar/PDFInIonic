@@ -1,0 +1,38 @@
+<html>
+<head>
+</head>
+<body>
+<ion-view view-title="Dashboard">
+  <ion-content class="" ng-controller="createPDF">
+    <div>
+    	<form class="list " id="">
+            <label name="date" id="date" class="item item-input item-floating-label ">
+                <span class="input-label">Date</span>
+                <input placeholder="Date" type="date" ng-model="date">
+            </label>
+            <label name="particulars" id="Particulars" class="item item-input item-floating-label ">
+                <span class="input-label">Particulars</span>
+                <input placeholder="Particulars" type="text" ng-model="particulars">
+            </label>
+            <label name="amount" id="createNewBill-input6" class="item item-input item-floating-label ">
+                <span class="input-label">Amount</span>
+                <input placeholder="Amount" type="number" ng-model="amount">
+            </label>
+  			<button class=" button button-positive button-block " id="addToStorage" style="border-radius:10px 10px 10px 10px;" ng-click="addStorage(date, particulars, amount)">Add To Storage</button>
+  			<button class=" button button-positive button-block " id="createPDF" style="border-radius:10px 10px 10px 10px;" ng-click="createPDFFromStorage()">Create PDF</button>                  
+        </form>
+    </div>
+  </ion-content>
+</ion-view>
+</body>
+<script id="pdf-viewer" type="text/ng-template">  
+    <ion-modal-view>
+    <ion-header-bar>        
+        <button ng-click="removeModal()" class="button button-icon icon ion-android-close"></button>        	
+    </ion-header-bar>
+    <ion-content>
+        <ng-pdf ng-if="pdfUrl" template-url="templates/viewer.html" canvasid="pdf" scale="page-fit"></ng-pdf>
+    </ion-content>
+    </ion-modal-view>
+</script> 
+</html>
